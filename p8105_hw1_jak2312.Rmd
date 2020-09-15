@@ -1,0 +1,7 @@
+---
+title: "p8105_hw1_jak2312"
+author: "Jared Klug"
+date: "9/15/2020"
+output: github_document
+---
+
