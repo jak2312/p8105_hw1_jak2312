@@ -1,7 +1,34 @@
 ---
-title: "p8105_hw1_jak2312"
+title: "Homework 1"
 author: "Jared Klug"
 date: "9/15/2020"
 output: github_document
 ---
+```{r load_lib, message=FALSE}
+library(tidyverse)
+```
 
+## Problem 1
+* Create a data frame comprised of:
+  + a random sample of size 10 from a standard Normal distribution
+  + a logical vector indicating whether elements of the sample are greater than 0
+  + a character vector of length 10
+  + a factor vector of length 10, with 3 different factor “levels”
+  
+```{r create_df}
+prob1_df = 
+  tibble(
+    samp = rnorm(10),
+    samp_pos = samp > 0,
+    char_vec = c("a", "b", "c", "d", "e", "f", "g", "h","i","j"),
+    fact_vec = factor(c("low", "low", "low", "mid", "mid", "mid", "mid", "high", "high", "high"))
+  )
+```
+
+Mean of each variable in prob1_df:
+
+```{r}
+
+```
+
+## Problem 2 
