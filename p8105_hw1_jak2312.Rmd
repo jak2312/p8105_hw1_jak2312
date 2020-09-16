@@ -4,7 +4,7 @@ author: "Jared Klug"
 date: "9/15/2020"
 output: github_document
 ---
-```{r load_lib, message=FALSE}
+```{r load_lib}
 library(tidyverse)
 ```
 
@@ -23,12 +23,32 @@ prob1_df =
     char_vec = c("a", "b", "c", "d", "e", "f", "g", "h","i","j"),
     fact_vec = factor(c("low", "low", "low", "mid", "mid", "mid", "mid", "high", "high", "high"))
   )
-```
-
-Mean of each variable in prob1_df:
-
-```{r}
 
 ```
+
+Try mean() for each variable in prob1_df:
+
+```{r try_mean}
+
+mean(pull(prob1_df,samp))
+mean(pull(prob1_df, samp_pos))
+mean(pull(prob1_df, char_vec))
+mean(pull(prob1_df, fact_vec))
+
+```
+
+mean() worked for the variables samp (double) and samp_pos (logical). It did not work for the character vector nor factor vector.  
+
+Try as.numeric() for each variable in prob1_df:
+
+```{r try_numeric, results='hide'}
+
+as.numeric(pull(prob1_df, samp_pos))
+as.numeric(pull(prob1_df, char_vec))
+as.numeric(pull(prob1_df, fact_vec))
+
+```
+
+as.number() worked for the logical vector and surprisingly the factor vector. R is able to change the data types which is why mean() was able to output a number value for the logic vector; mean() first converted the logic vector in numbers then calculated the mean. 
 
 ## Problem 2 
