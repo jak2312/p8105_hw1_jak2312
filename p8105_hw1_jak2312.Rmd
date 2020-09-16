@@ -5,7 +5,9 @@ date: "9/15/2020"
 output: github_document
 ---
 ```{r load_lib}
+
 library(tidyverse)
+
 ```
 
 ## Problem 1
@@ -16,6 +18,7 @@ library(tidyverse)
   + a factor vector of length 10, with 3 different factor “levels”
   
 ```{r create_df}
+
 prob1_df = 
   tibble(
     samp = rnorm(10),
@@ -51,4 +54,34 @@ as.numeric(pull(prob1_df, fact_vec))
 
 as.number() worked for the logical vector and surprisingly the factor vector. R is able to change the data types which is why mean() was able to output a number value for the logic vector; mean() first converted the logic vector in numbers then calculated the mean. 
 
+* In a second code chunk:
+    + convert the logical vector to numeric, and multiply the random sample by the result
+    + convert the logical vector to a factor, and multiply the random sample by the result
+    + convert the logical vector to a factor and then convert the result to numeric, and multiply the random sample by the result
+    
+```{r convert_multiply}
+
+as.numeric(pull(prob1_df, samp_pos)) * pull(prob1_df, samp)
+as.factor(pull(prob1_df, samp_pos)) * pull(prob1_df, samp)
+as.numeric(as.factor(pull(prob1_df, samp_pos))) * pull(prob1_df, samp)
+
+```
+
 ## Problem 2 
+
+```{r load_data}
+
+library(palmerpenguins)
+
+data("penguins", package = "palmerpenguins")
+
+```
+
+* Write a short description of the penguins dataset (not the penguins_raw dataset) using inline R code, including:
+  + the data in this dataset, including names / values of important variables
+  + the size of the dataset (using nrow and ncol)
+  + the mean flipper length  
+  
+The data in the penguins dataset includes `r length(penguins)` variables:  
+`r variable.names(penguins)`.   
+
