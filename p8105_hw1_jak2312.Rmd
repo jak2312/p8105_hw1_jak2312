@@ -82,6 +82,25 @@ data("penguins", package = "palmerpenguins")
   + the size of the dataset (using nrow and ncol)
   + the mean flipper length  
   
-The data in the penguins dataset includes `r length(penguins)` variables:  
-`r variable.names(penguins)`.   
+The data in the penguins dataset includes `r ncol(penguins)` variables:
+`r variable.names(penguins)`.  
+A total of `r nrow(penguins)` penguins make up the dataset. (the dataset is `r nrow(penguins)` x `r ncol(penguins)`)
+There are `r length(levels(pull(penguins, species)))` different species of penguins in this dataset.  
+Excluding the missing values, the average body mass of the penguins is `r round(mean(pull(penguins, body_mass_g), na.rm = TRUE), digits = 2)`g.  
+The distribution of sex goes as follows: `r count(penguins,sex)[1,]` | `r count(penguins, sex)[2,]` | `r count(penguins, sex)[3,]`  
+The data from the penguins was taken between years `r min(pull(penguins, year))` and `r max(pull(penguins, year))`.  
+The mean flipper length is `r round(mean(pull(penguins, flipper_length_mm), na.rm = TRUE), digits = 2)`mm.  
+
+* Make a scatterplot of flipper_length_mm (y) vs bill_length_mm (x); color points using the species variable (adding color = ... inside of aes in your ggplot code should help).
+
+```{r load_ggplot}
+
+library (ggplot2)
+
+```
+
+```{r make_scatter}
+
+```
+
 
