@@ -103,7 +103,6 @@ library (ggplot2)
 
 ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = factor(species))) + 
   geom_point() + 
-  theme_minimal() +
   labs(color = "Species")
 
 ggsave(filename = "penguins.png")
