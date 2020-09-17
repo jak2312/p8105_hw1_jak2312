@@ -101,6 +101,12 @@ library (ggplot2)
 
 ```{r make_scatter}
 
+ggplot(penguins, aes(x = bill_length_mm, y = flipper_length_mm, color = factor(species))) + 
+  geom_point() + 
+  theme_minimal()
+
+ggsave()
+
 ```
 
 
